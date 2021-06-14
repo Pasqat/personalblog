@@ -1,4 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'styles/index.scss';
 
-export default ({ Component, pageProps }) => <Component {...pageProps} />;
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}

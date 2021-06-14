@@ -8,7 +8,6 @@ import CardItem from 'components/CardItem';
 import CardListItem from 'components/CardListItem';
 
 export default function Home({ blogs }) {
-  debugger;
   return (
     <PageLayout>
       <AuthorIntro />
@@ -20,8 +19,23 @@ export default function Home({ blogs }) {
         </Col>
         */}
         {blogs.map((blog) => (
-          <Col md="4">
-            <CardItem title={blog.title} subtitle={blog.subtitle} />
+          <Col key={blog.slug} md="4">
+            {/*
+             * we pass the object to link so if we need to refator
+             * for example slug -> id, we only have to do it once
+             * here
+             */}
+            <CardItem
+              title={blog.title}
+              subtitle={blog.subtitle}
+              date={blog.date}
+              image={blog.coverImage}
+              author={blog.author}
+              link={{
+                href: '/blogs/[slug]',
+                as: `/blogs/${blog.slug}`,
+              }}
+            />
           </Col>
         ))}
       </Row>

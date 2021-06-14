@@ -1,21 +1,31 @@
+import Head from 'next/head';
 import { Container } from 'react-bootstrap';
 import Navbar from './Navbar';
 
 export default function PageLayout({ children, className }) {
   return (
-    <Container>
-      <Navbar />
-      <div className={`page-wrapper ${className}`}>{children}</div>
+    <>
+      <Head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;0,900;1,600&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <Container>
+        <Navbar />
+        <div className={`page-wrapper ${className}`}>{children}</div>
 
-      <footer className="page-footer">
-        <div>
-          <a href="#">courses</a>
-          {' | '}
-          <a href="#">github</a>
-          {' | '}
-          <a href="#">facebook</a>
-        </div>
-      </footer>
-    </Container>
+        <footer className="page-footer">
+          <div>
+            <a href="#">courses</a>
+            {' | '}
+            <a href="#">github</a>
+            {' | '}
+            <a href="#">facebook</a>
+          </div>
+        </footer>
+      </Container>
+    </>
   );
 }
