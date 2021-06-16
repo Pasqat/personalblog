@@ -25,6 +25,9 @@ export default createSchema({
           name: 'avatar',
           title: 'Avatar',
           type: 'image',
+          options: {
+            hotspot: true,
+          },
         },
       ],
     },
