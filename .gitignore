@@ -2,6 +2,7 @@
 
 # dependencies
 */node_modules/**/*
+/blogsanitystudio/node_modules
 /node_modules
 /.pn
 .pnp.js
