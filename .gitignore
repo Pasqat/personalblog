@@ -3,7 +3,7 @@
 # dependencies
 /blogsanitystudio/node_modules
 /node_modules
-/.pn
+/.pnp
 .pnp.js
 
 # testing
