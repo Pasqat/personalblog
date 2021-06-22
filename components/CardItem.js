@@ -1,12 +1,21 @@
-import Link from 'next/link';
-import { urlFor } from 'lib/api';
+import Link from 'next/link'
+import { urlFor } from 'lib/api'
 
-import { Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap'
 
-const CardItem = ({ title, subtitle, date, image, author, link }) => {
+const CardItem = ({
+  title,
+  subtitle,
+  date,
+  image,
+  author,
+  link,
+  mode = 'normal',
+}) => {
   return (
-    <Link {...link}>
-      <Card className={`fj-card`}>
+    // NOTE: href here serve as a default for placeholder card
+    <Link href="#" {...link}>
+      <Card className={`fj-card ${mode}`}>
         <div className="card-body-wrapper">
           <Card.Header className="d-flex flex-row">
             <img
@@ -17,31 +26,57 @@ const CardItem = ({ title, subtitle, date, image, author, link }) => {
               alt="avatar"
             />
             <div>
-              <Card.Title className="font-weight-bold mb-1">
-                {author?.name}
-              </Card.Title>
-              <Card.Text className="card-date">{date}</Card.Text>
+              {mode === 'placeholder' ? (
+                <>
+                  <Card.Title className="font-weight-bold mb-1">
+                    Placeholder Name
+                  </Card.Title>
+                  <Card.Text className="card-date">Placeholder date</Card.Text>
+                </>
+              ) : (
+                <>
+                  <Card.Title className="font-weight-bold mb-1">
+                    {author?.name}
+                  </Card.Title>
+                  <Card.Text className="card-date">{date}</Card.Text>
+                </>
+              )}
             </div>
           </Card.Header>
           <div className="view overlay">
-            <Card.Img
-              src={urlFor(image).height(300).crop('center').fit('clip').url()}
-              alt="Card image cap"
-            />
+            {mode === 'placeholder' ? (
+              <div className="image-placeholder" />
+            ) : (
+              <Card.Img
+                src={urlFor(image).height(300).crop('center').fit('clip').url()}
+                alt="Card image cap"
+              />
+            )}
           </div>
           <Card.Body>
-            <Card.Title className="card-main-title">{title}</Card.Title>
-            <Card.Text>{subtitle}</Card.Text>
+            {mode === 'placeholder' ? (
+              <>
+                <Card.Title className="card-main-title">
+                  Placeholder title
+                </Card.Title>
+                <Card.Text>Placeholder subtitel</Card.Text>
+              </>
+            ) : (
+              <>
+                <Card.Title className="card-main-title">{title}</Card.Title>
+                <Card.Text>{subtitle}</Card.Text>
+              </>
+            )}
           </Card.Body>
         </div>
-        {/* 
-      <Link {...link}>
-        <a className="card-button">Read More</a>
-      </Link>
-      */}
+        {/*
+<Link {...link}>
+<a className="card-button">Read More</a>
+</Link>
+        */}
       </Card>
     </Link>
-  );
-};
+  )
+}
 
-export default CardItem;
+export default CardItem
