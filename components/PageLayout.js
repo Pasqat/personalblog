@@ -1,10 +1,12 @@
-import Head from 'next/head';
-import { Container } from 'react-bootstrap';
-import Navbar from './Navbar';
+import Head from 'next/head'
+import { useTheme } from 'provider/ThemeProvider'
+import { Container } from 'react-bootstrap'
+import Navbar from './Navbar'
 
 export default function PageLayout({ children, className }) {
+  const { theme, ToggleTheme } = useTheme()
   return (
-    <>
+    <div className={theme.type}>
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -13,7 +15,7 @@ export default function PageLayout({ children, className }) {
         />
       </Head>
       <Container>
-        <Navbar />
+        <Navbar theme={theme} toggleTheme={ToggleTheme} />
         <div className={`page-wrapper ${className}`}>{children}</div>
 
         <footer className="page-footer">
@@ -26,6 +28,16 @@ export default function PageLayout({ children, className }) {
           </div>
         </footer>
       </Container>
-    </>
-  );
+      <style jsx global>
+        {`
+          html,
+          body {
+            background: ${theme.background};
+            color: ${theme.fontColor};
+            transition: color 0.2s ease-out 0s, background 0.2s ease-out 0s;
+          }
+        `}
+      </style>
+    </div>
+  )
 }

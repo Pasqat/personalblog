@@ -14,7 +14,7 @@ const BlogDetail = ({ blog }) => {
           <BlogHeader
             title={blog.title}
             subtitle={blog.subtitle}
-            coverImage={urlFor(blog.coverImage).height(300).url()}
+            coverImage={urlFor(blog.coverImage).height(600).url()}
             date={blog.date}
             author={blog.author}
           />
