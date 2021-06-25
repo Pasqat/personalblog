@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { Navbar, Nav } from 'react-bootstrap'
+import Link from 'next/link';
+import { Navbar, Nav } from 'react-bootstrap';
 
-import ThemeToggle from 'components/ThemeToggle'
+import ThemeToggle from 'components/ThemeToggle';
 
 const BlogNavbar = ({ theme, toggleTheme }) => {
   return (
@@ -39,10 +39,42 @@ const BlogNavbar = ({ theme, toggleTheme }) => {
               </Link>
             )}
           />
+          <Nav.Link
+            href="/about"
+            as={() => (
+              <Link href="/about">
+                <a className="fj-navbar-item fj-navbar-link">About</a>
+              </Link>
+            )}
+          />
+          <Nav.Link
+            href="/works"
+            as={() => (
+              <Link href="/works">
+                <a className="fj-navbar-item fj-navbar-link">Works</a>
+              </Link>
+            )}
+          />
+          <Nav.Link
+            href="/contacts"
+            as={() => (
+              <Link href="/contacts">
+                <a className="fj-navbar-item fj-navbar-link">Contacts</a>
+              </Link>
+            )}
+          />
+          <Nav.Link
+            href="/blogs"
+            as={() => (
+              <Link href="/blogs">
+                <a className="fj-navbar-item fj-navbar-link">Blogs</a>
+              </Link>
+            )}
+          />
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-  )
-}
+  );
+};
 
-export default BlogNavbar
+export default BlogNavbar;

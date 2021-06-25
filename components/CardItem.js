@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { urlFor } from "lib/api";
+import Link from 'next/link';
+import { urlFor } from 'lib/api';
 
-import { Card } from "react-bootstrap";
+import { Card } from 'react-bootstrap';
 
 const CardItem = ({
   title,
@@ -10,77 +10,56 @@ const CardItem = ({
   image,
   author,
   link,
-  mode = "normal",
+  mode = 'normal',
 }) => {
   return (
     // NOTE: href here serve as a default for placeholder card
     <Link href="#" {...link}>
-      <Card className={`fj-card ${mode}`}>
-        <div className="card-body-wrapper">
-          <Card.Header className="d-flex flex-row">
-            <img
-              src={author?.avatar || "https://via.placeholder.com/150"}
-              className="rounded-circle mr-3"
-              height="50px"
-              width="50px"
-              alt="avatar"
-            />
-            <div>
-              {mode === "placeholder" ? (
-                <>
-                  <Card.Title className="font-weight-bold mb-1">
-                    Placeholder Name
-                  </Card.Title>
-                  <Card.Text className="card-date">Placeholder date</Card.Text>
-                </>
-              ) : (
-                <>
-                  <Card.Title className="font-weight-bold mb-1">
-                    {author?.name}
-                  </Card.Title>
-                  <Card.Text className="card-date">{date}</Card.Text>
-                </>
-              )}
-            </div>
-          </Card.Header>
+      <div className="card-wrapper">
+        <Card className={`fj-card ${mode}`}>
           <div className="view overlay">
-            {mode === "placeholder" ? (
+            {mode === 'placeholder' ? (
               <div className="image-placeholder" />
             ) : (
               <Card.Img
-                src={urlFor(image).height(300).crop("center").fit("clip").url()}
+                variant="top"
+                src={urlFor(image).height(300).crop('center').fit('clip').url()}
                 alt="Card image cap"
               />
             )}
           </div>
           <Card.Body>
-            {mode === "placeholder" ? (
-              <>
-                <Card.Title className="card-main-title">
-                  Placeholder title
-                </Card.Title>
-                <Card.Text>Placeholder subtitel</Card.Text>
-              </>
-            ) : (
-              <>
-                <Card.Title className="card-main-title">
-                  {title.length > 40 ? title.substr(0, 40) + "..." : title}
-                </Card.Title>
-                <Card.Text>
-                  {subtitle.length > 40
-                    ? subtitle.substr(0, 40) + "..."
-                    : subtitle}
-                </Card.Text>
-              </>
-            )}
+            <div className="card-body-wrapper">
+              {mode === 'placeholder' ? (
+                <>
+                  <Card.Text className="card-date">Placeholder date</Card.Text>
+                  <Card.Title className="card-main-title">
+                    Placeholder title
+                  </Card.Title>
+                  <Card.Text>Placeholder subtitel</Card.Text>
+                </>
+              ) : (
+                <>
+                  <Card.Text className="card-date">{date}</Card.Text>
+                  <Card.Title className="card-main-title">
+                    {title.length > 40 ? title.substr(0, 40) + '...' : title}
+                  </Card.Title>
+                  <Card.Text>
+                    {subtitle.length > 60
+                      ? subtitle.substr(0, 60) + '...'
+                      : subtitle}
+                  </Card.Text>
+                </>
+              )}
+            </div>
           </Card.Body>
-        </div>
-        {/*
+          {/*
 <Link {...link}>
 <a className="card-button">Read More</a>
 </Link>
         */}
-      </Card>
+        </Card>
+      </div>
     </Link>
   );
 };
