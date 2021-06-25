@@ -1,31 +1,32 @@
-import { useSWRPages } from 'swr'
-import { useGetBlogs } from 'actions'
+import { useSWRPages } from "swr";
+import { useGetBlogs } from "actions";
+import moment from "moment";
 
-import { Col } from 'react-bootstrap'
+import { Col } from "react-bootstrap";
 
-import CardItem from 'components/CardItem'
-import CardListItem from 'components/CardListItem'
-import CardItemBlank from 'components/CardItemBlank'
-import CardListItemBlank from 'components/CardListItemBlank'
-import { useEffect } from 'react'
+import CardItem from "components/CardItem";
+import CardListItem from "components/CardListItem";
+import CardItemBlank from "components/CardItemBlank";
+import CardListItemBlank from "components/CardListItemBlank";
+import { useEffect } from "react";
 
 export const useGetBlogPages = ({ blogs, filter }) => {
   useEffect(() => {
-    window.__pagination__init = true
-  }, [])
+    window.__pagination__init = true;
+  }, []);
 
   return useSWRPages(
-    'index-page',
+    "index-page",
     ({ offset, withSWR }) => {
-      let initialData = !offset && blogs
+      let initialData = !offset && blogs;
 
-      if (typeof window !== 'undefined' && window.__pagination__init) {
-        initialData = null
+      if (typeof window !== "undefined" && window.__pagination__init) {
+        initialData = null;
       }
 
       const { data: paginatedBlogs } = withSWR(
         useGetBlogs({ offset, filter }, initialData)
-      )
+      );
 
       if (!paginatedBlogs) {
         return Array(3)
@@ -36,11 +37,11 @@ export const useGetBlogPages = ({ blogs, filter }) => {
                 <CardListItemBlank />
               </Col>
             ) : (
-              <Col key={i} md="4">
+              <Col key={i} md="6" lg="4">
                 <CardItemBlank />
               </Col>
             )
-          )
+          );
       }
 
       return paginatedBlogs.map((blog) =>
@@ -50,15 +51,15 @@ export const useGetBlogPages = ({ blogs, filter }) => {
               title={blog.title}
               subtitle={blog.subtitle}
               author={blog.author}
-              date={blog.date}
+              date={moment(blog.date).format("LL")}
               link={{
-                href: '/blogs/[slug]',
+                href: "/blogs/[slug]",
                 as: `/blogs/${blog.slug}`,
               }}
             />
           </Col>
         ) : (
-          <Col key={blog.slug} md="4">
+          <Col key={blog.slug} md="6" lg="4">
             {/*
              * we pass the object to link so if we need to refator
              * for example slug -> id, we only have to do it once
@@ -67,17 +68,17 @@ export const useGetBlogPages = ({ blogs, filter }) => {
             <CardItem
               title={blog.title}
               subtitle={blog.subtitle}
-              date={blog.date}
+              date={moment(blog.date).format("LL")}
               image={blog.coverImage}
               author={blog.author}
               link={{
-                href: '/blogs/[slug]',
+                href: "/blogs/[slug]",
                 as: `/blogs/${blog.slug}`,
               }}
             />
           </Col>
         )
-      )
+      );
     },
     // NOTE: here you will compute offset that will get passed into
     // the previous (above) callback functions
@@ -85,10 +86,10 @@ export const useGetBlogPages = ({ blogs, filter }) => {
     // index: number of current page
     (SWR, index) => {
       if (SWR.data && SWR.data.length === 0) {
-        return null
+        return null;
       }
-      return (index + 1) * 6
+      return (index + 1) * 6;
     },
     [filter] // NOTE: dependency needed to re-execute and rerender
-  )
-}
+  );
+};
