@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { urlFor } from 'lib/api';
+import Link from "next/link";
+import { urlFor } from "lib/api";
 
-import { Card } from 'react-bootstrap';
+import { Card } from "react-bootstrap";
 
 const CardItem = ({
   title,
@@ -10,27 +10,27 @@ const CardItem = ({
   image,
   author,
   link,
-  mode = 'normal',
+  mode = "normal",
 }) => {
   return (
     // NOTE: href here serve as a default for placeholder card
     <Link href="#" {...link}>
-      <div className="card-wrapper">
-        <Card className={`fj-card ${mode}`}>
+      <div className="card-wrapper clickable">
+        <Card className={`pm-card ${mode}`}>
           <div className="view overlay">
-            {mode === 'placeholder' ? (
+            {mode === "placeholder" ? (
               <div className="image-placeholder" />
             ) : (
               <Card.Img
                 variant="top"
-                src={urlFor(image).height(300).crop('center').fit('clip').url()}
+                src={urlFor(image).height(300).crop("center").fit("clip").url()}
                 alt="Card image cap"
               />
             )}
           </div>
           <Card.Body>
             <div className="card-body-wrapper">
-              {mode === 'placeholder' ? (
+              {mode === "placeholder" ? (
                 <>
                   <Card.Text className="card-date">Placeholder date</Card.Text>
                   <Card.Title className="card-main-title">
@@ -42,11 +42,11 @@ const CardItem = ({
                 <>
                   <Card.Text className="card-date">{date}</Card.Text>
                   <Card.Title className="card-main-title">
-                    {title.length > 40 ? title.substr(0, 40) + '...' : title}
+                    {title.length > 40 ? title.substr(0, 40) + "..." : title}
                   </Card.Title>
                   <Card.Text>
                     {subtitle.length > 60
-                      ? subtitle.substr(0, 60) + '...'
+                      ? subtitle.substr(0, 60) + "..."
                       : subtitle}
                   </Card.Text>
                 </>

@@ -7,14 +7,14 @@ const BlogNavbar = ({ theme, toggleTheme }) => {
   return (
     <Navbar
       variant={theme.type}
-      className="fj-navbar fj-nav-base"
+      className="pm-navbar pm-nav-base"
       bg="transparent"
       expand="lg"
     >
-      <Navbar.Brand className="fj-navbar-brand">
+      <Navbar.Brand className="pm-navbar-brand">
         <Link href="/">
           <a style={{ color: theme.fontColor }}>
-            Pasquale
+            Pm
             <span
               style={{
                 fontSize: '20px',
@@ -22,7 +22,7 @@ const BlogNavbar = ({ theme, toggleTheme }) => {
                 fontWeight: '400',
               }}
             >
-              Matarrese.io
+              blog
             </span>
           </a>
         </Link>
@@ -35,39 +35,7 @@ const BlogNavbar = ({ theme, toggleTheme }) => {
             href="/"
             as={() => (
               <Link href="/">
-                <a className="fj-navbar-item fj-navbar-link">Home</a>
-              </Link>
-            )}
-          />
-          <Nav.Link
-            href="/about"
-            as={() => (
-              <Link href="/about">
-                <a className="fj-navbar-item fj-navbar-link">About</a>
-              </Link>
-            )}
-          />
-          <Nav.Link
-            href="/works"
-            as={() => (
-              <Link href="/works">
-                <a className="fj-navbar-item fj-navbar-link">Works</a>
-              </Link>
-            )}
-          />
-          <Nav.Link
-            href="/contacts"
-            as={() => (
-              <Link href="/contacts">
-                <a className="fj-navbar-item fj-navbar-link">Contacts</a>
-              </Link>
-            )}
-          />
-          <Nav.Link
-            href="/blogs"
-            as={() => (
-              <Link href="/blogs">
-                <a className="fj-navbar-item fj-navbar-link">Blogs</a>
+                <a className="pm-navbar-item pm-navbar-link">Home</a>
               </Link>
             )}
           />

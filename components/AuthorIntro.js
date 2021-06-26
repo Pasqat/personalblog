@@ -1,4 +1,4 @@
-import { Row, Col, Media, Image } from 'react-bootstrap';
+import { Row, Col, Media, Image } from "react-bootstrap";
 
 export default function AuthorIntro() {
   return (
@@ -17,9 +17,21 @@ export default function AuthorIntro() {
           <Media.Body>
             <h5 className="font-weight-bold mb-0">Hello Friends,</h5>
             <p className="welcome-text">
-              My name is Pasquale Matarrese and I am an software engineer and
-              freelance developer. and this is my blog page.
+              This is a blog made in Nextjs with Sanity as headless CMS and
+              react-bootstrap for UI.
+              <p>
+                My name is Pasquale Matarrese and I am an app and front-end
+                developer. I currently live in Italy with my wife and our four
+                cute dogs. I enjoy exploring new way to make beautiful and
+                easy-to-use web-app.
+              </p>
             </p>
+            <p className="welcome-text">
+              Currently I'm working with React, Nextjs, React Native, Nodejs,
+              Express, MongoDb, and I will be happy to help you if you need a
+              web solution for your needs.
+            </p>
+            <p className="welcome-text">.</p>
           </Media.Body>
         </Media>
         {/* AUTHOR INTRO ENDS */}
