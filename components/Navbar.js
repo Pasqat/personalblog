@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { Navbar, Nav } from 'react-bootstrap';
+import Link from "next/link";
+import { Navbar, Nav } from "react-bootstrap";
 
-import ThemeToggle from 'components/ThemeToggle';
+import ThemeToggle from "components/ThemeToggle";
 
 const BlogNavbar = ({ theme, toggleTheme }) => {
   return (
@@ -17,9 +17,9 @@ const BlogNavbar = ({ theme, toggleTheme }) => {
             Pm
             <span
               style={{
-                fontSize: '20px',
-                textTransform: 'none',
-                fontWeight: '400',
+                fontSize: "20px",
+                textTransform: "none",
+                fontWeight: "400",
               }}
             >
               blog
