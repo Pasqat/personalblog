@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import { useTheme } from 'provider/ThemeProvider'
-import { Container } from 'react-bootstrap'
-import Navbar from './Navbar'
+import Head from "next/head";
+import { useTheme } from "provider/ThemeProvider";
+import { Container } from "react-bootstrap";
+import Navbar from "./Navbar";
 
 export default function PageLayout({ children, className }) {
-  const { theme, ToggleTheme } = useTheme()
+  const { theme, ToggleTheme } = useTheme();
   return (
     <div className={theme.type}>
       <Head>
@@ -20,11 +20,13 @@ export default function PageLayout({ children, className }) {
 
         <footer className="page-footer">
           <div>
-            <a href="#">courses</a>
-            {' | '}
-            <a href="#">github</a>
-            {' | '}
-            <a href="#">facebook</a>
+            <a href="https://www.github.com/pasqat">github</a>
+            {" | "}
+            <a href="https://www.facebook.com/pasqat">facebook</a>
+            {" | "}
+            <a href="https://www.linkedin.com/in/pasquale-matarrese/">
+              linkedin
+            </a>
           </div>
         </footer>
       </Container>
@@ -39,5 +41,5 @@ export default function PageLayout({ children, className }) {
         `}
       </style>
     </div>
-  )
+  );
 }
