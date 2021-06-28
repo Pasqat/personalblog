@@ -20,7 +20,7 @@ export default function AuthorIntro() {
               alt="Generic placeholder"
             />
             <Media.Body>
-              <h5 className="font-weight-bold mb-0">Hello Friends,</h5>
+              <h5 className="font-weight-bold mb-0 mt-0">Hello Friends,</h5>
               <div className="welcome-text">
                 <p>
                   This is a blog made in <strong>Nextjs</strong> with{" "}
@@ -68,7 +68,7 @@ export default function AuthorIntro() {
               alt="Generic placeholder"
             />
             <Media.Body>
-              <h5 className="font-weight-bold mb-0">Hello Friends!</h5>
+              <h5 className="font-weight-bold mb-0 mt-0">Hello Friends!</h5>
               <p className="welcome-text">You can find me on:</p>
               <div className="welcome-text">
                 <a href="https://www.github.com/pasqat">github</a>
@@ -80,8 +80,12 @@ export default function AuthorIntro() {
                 </a>
               </div>
             </Media.Body>
-            <p className="clickable" onClick={() => setClosed(!closed)}>
-              ⬇️
+            <p
+              style={{ color: "#999" }}
+              className="clickable"
+              onClick={() => setClosed(!closed)}
+            >
+              click me ⬇️
             </p>
           </Media>
         </Col>

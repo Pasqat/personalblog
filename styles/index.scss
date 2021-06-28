@@ -8,6 +8,19 @@ body {
   background-color: #f4f7f9;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
+
+pre {
+  margin: 3rem 0;
+}
+
 .clickable:hover {
   cursor: pointer;
 }
@@ -33,10 +46,19 @@ body {
     &.no-image {
       min-height: auto;
     }
+
+    .card-date.card-text {
+      height: initial;
+    }
+
+    .card-text {
+      height: 50px;
+      font-size: 1.2rem;
+    }
   }
 
   .card-body {
-    padding: 15px 0px 0px;
+    padding: 0px;
 
     .card-title {
       font-weight: bold;
@@ -53,7 +75,7 @@ body {
 
   .card-main-title {
     font-size: 2rem;
-    height: 60px;
+    height: 100px;
   }
 
   .card-header {
@@ -104,8 +126,9 @@ body {
   }
 
   &.pm-card-list {
+    min-height: 80px;
+
     .card-body-wrapper {
-      min-height: 180px;
       // position: relative;
       // z-index: 2;
       // padding: 20px;
@@ -115,6 +138,12 @@ body {
     .card-header {
       background-color: transparent;
       padding-bottom: 5px;
+    }
+
+    .card-main-title {
+      padding: 2rem 0 2rem;
+      height: 50px;
+      margin-bottom: 2rem;
     }
   }
 }
@@ -566,10 +595,13 @@ blockquote {
   font-size: 1.25em;
   font-family: Georgia, Times New Roman, Times, serif;
   font-style: italic;
-  margin: 0;
+  text-align: center;
+  margin: 2rem 1rem;
   padding: 0.5em 0.5em 0.5em 0.5em;
   background-repeat: no-repeat;
   background-position: 0 0;
   background-origin: border-box;
   background-size: 2em;
+  border-bottom: 1px solid #999;
+  border-top: 1px solid #999;
 }
