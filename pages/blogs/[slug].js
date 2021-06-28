@@ -9,6 +9,7 @@ import BlogContent from "components/BlogContent";
 import PreviewAlert from "components/PreviewAlert";
 
 const BlogDetail = ({ blog, preview }) => {
+  console.log(blog);
   return (
     <PageLayout className="blog-detail-page">
       <Row>
@@ -18,6 +19,7 @@ const BlogDetail = ({ blog, preview }) => {
             title={blog.title}
             subtitle={blog.subtitle}
             coverImage={urlFor(blog.coverImage).height(600).url()}
+            coverImageAlt={blog.coverImage.alt}
             date={moment(blog.date).format("LL")}
             author={blog.author}
           />

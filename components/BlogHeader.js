@@ -2,6 +2,7 @@ export default function BlogHeader({
   title,
   subtitle,
   coverImage,
+  coverImageAlt,
   date,
   author,
 }) {
@@ -16,19 +17,13 @@ export default function BlogHeader({
           alt="avatar"
         />
         {author?.name}
-        {', '} {date}
+        {", "} {date}
       </p>
       <h1 className="font-weight-bold blog-detail-header-title mb-0">
         {title}
       </h1>
       <h2 className="blog-detail-header-subtitle mb-3">{subtitle}</h2>
-      {/* Check if contains cover image */}
-      {/* TODO: provide alt */}
-      <img
-        className="img-fluid rounded"
-        src={coverImage}
-        alt="TODO: provide alt"
-      />
+      <img className="img-fluid rounded" src={coverImage} alt={coverImageAlt} />
     </div>
   );
 }
