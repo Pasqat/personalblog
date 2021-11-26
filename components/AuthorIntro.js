@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Row, Col, Media, Image } from "react-bootstrap";
 
 export default function AuthorIntro() {
-  useEffect;
   const [closed, setClosed] = useState(true);
 
   return (

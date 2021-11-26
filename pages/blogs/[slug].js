@@ -9,7 +9,6 @@ import BlogContent from "components/BlogContent";
 import PreviewAlert from "components/PreviewAlert";
 
 const BlogDetail = ({ blog, preview }) => {
-  console.log(blog);
   return (
     <PageLayout className="blog-detail-page">
       <Row>
